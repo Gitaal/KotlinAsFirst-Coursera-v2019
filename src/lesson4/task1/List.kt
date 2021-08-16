@@ -132,7 +132,24 @@ fun mean(list: List<Double>): Double = TODO()
  *
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
-fun center(list: MutableList<Double>): MutableList<Double> = TODO()
+fun center(list: MutableList<Double>): MutableList<Double> {
+    var sum = 0.0
+    var countElements = 0.0
+    var avgElement = 0.0
+
+    if (list.size > 0) {
+        for (i in 0 until list.size) {
+            sum += list[i]
+            countElements++
+        }
+
+        avgElement = sum / countElements
+
+        for (i in 0 until list.size) list[i] -= avgElement
+    }
+    return list
+}
+
 
 /**
  * Средняя
@@ -163,7 +180,14 @@ fun polynom(p: List<Int>, x: Int): Int = TODO()
  *
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
-fun accumulate(list: MutableList<Int>): MutableList<Int> = TODO()
+fun accumulate(list: MutableList<Int>): MutableList<Int> {
+    if (list.size > 0) {
+        for (i in 1 until list.size) {
+            list[i] += list[i - 1]
+        }
+    }
+    return list
+}
 
 /**
  * Средняя
